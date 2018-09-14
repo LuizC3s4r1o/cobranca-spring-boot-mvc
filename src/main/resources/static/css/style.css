@@ -1,19 +1,24 @@
 .navbar.navbar-inverse.navbar-static-top{
-	background: #4682B4;
+	background: #363636;
 }
 
-.panel-default{
+.card{
 	margin-left: 10px;
 	margin-right: 10px;
+	margin-top: 10px;
 }
 
 .navbar-brand{
 	padding: 0px;
 }
 
-.panel-title{
-	font-size: 26px;
+.card-header{
+	padding: 0;
+}
+
+.card-title{
+	padding: 0;
+	margin-top: 5px;
 	color: #104E8B;
 	margin-left: 15px;
-	margin-top: 10px;
 }
