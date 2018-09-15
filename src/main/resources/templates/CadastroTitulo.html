@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org" >
 <head>
 
 	<meta charset="UTF-8"/>
@@ -22,6 +23,10 @@
 		    </nav>
 		    
 		    <form class="form-group" method="POST" action="/titulos">
+				<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+				  <span th:text="${mensagem}"></span>
+				</div>
+				
 		    	<div class="card">
 		    		<div class="card-header">
 		    			<h4 class="card-title">Novo título</h4>
@@ -62,6 +67,5 @@
 		    </form>
 
 	<script src="/js/bootstrap.min.js"></script>
-	
 </body>
 </html>
