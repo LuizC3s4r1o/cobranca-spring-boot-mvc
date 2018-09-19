@@ -20,19 +20,30 @@
 		
 			<div class="card-body">
 			<table class="table table-bordered table-striped">
-				  <thead>
+				  <thead >
 				    <tr >
-				      <th class="text-center" width="10%" scope="col" >#</th>
-				      <th scope="col" width="30%">Descrição</th>
+				      <th class="text-center" width="5%" scope="col" >#</th>
+				      <th scope="col" class="text-left" width="35%">Descrição</th>
 				      <th class="text-center" width="15%" scope="col">Vencimento</th>
 				      <th class="text-right" width="15%" scope="col">Valor</th>
 				      <th class="text-center" width="20%" scope="col" >Status</th>
 				      <th class="text-center" width="10%" scope="col" >Editar</th>
 				    </tr>
 				  </thead>
-				  <tbody>
+				  <tbody >
+				  	<tr th:each="titulo : ${titulos}">
+				  		<td class="text-center" th:text="${titulo.id}"></td>
+				  		<td class="text-left" th:text="${titulo.descricao}"></td>
+				  		<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
+				  		<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
+				  		<td class="text-center">
+				  			<span class="badge" th:text="${titulo.status.descricao}"
+				  			th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
+				  		</td>
+				  		<td class="text-center" ></td>
+				  	</tr>	
 				    <tr>
-				      <td colspan="6">Nenhum item foi encontrado</td>
+				      <td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum item foi encontrado</td>
 				    </tr>
 				  </tbody>
 				</table>
