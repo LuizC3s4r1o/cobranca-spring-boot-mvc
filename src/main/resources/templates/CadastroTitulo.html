@@ -1,72 +1,59 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-	  xmlns:th="http://www.thymeleaf.org" >
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="LayoutPadrao">
+
 <head>
-
-	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-	
 	<title>Cadastro de título</title>
-
 </head>
-<body>
 
-			<nav class="navbar navbar-inverse navbar-static-top" >
-		        <div class="container-fluid">
-		            <div class="navbar-header" >
-		                <a class="navbar-light" href="#">
-		                    <img alt="LacSystem" src="/images/logo-lacsystem.png" />
-		                </a>
-		            </div>
-		        </div>
-		    </nav>
-		    
-		    <form class="form-group" method="POST" action="/titulos">
-				<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-				  <span th:text="${mensagem}"></span>
-				</div>
-				
-		    	<div class="card">
-		    		<div class="card-header">
-		    			<h4 class="card-title">Novo título</h4>
-		    		</div>
-		    		
-		    		<div class="card-body">
-						<div class="form-group">
-							<label for="descricao" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Descrição</label>
-							<div class="col-sm-8 col-md-8 col-lg-4 "> 
-								<input type="text" class="form-control" id="descricao" name="descricao"/>
-							</div>
-							
-							<label for="dataVencimento" class="col-sm-4 col-md-4 col-lg-2  col-form-label">Data de vencimento</label>
-							<div class="col-sm-4 col-md-4 col-lg-2 ">  
-								<input type="text" class="form-control"	id="dataVencimento" name="dataVencimento" />
-							</div>
-							
-							<label for="valor" class="col-sm-4 col-md-4 col-lg-2  col-form-label">Valor</label>
-							<div class="col-sm-4 col-md-4 col-lg-2 ">   
-								<input type="text" class="form-control" id="valor" name="valor"/>
-							</div>
-							
-							<label for="status" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Status</label>
-							<div class="col-sm-4 col-md-4 col-lg-2">
-								<select class="form-control" name="status">
-									<option th:each="status : ${carregarStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
-		                    	</select>
-		                    </div>
+<section layout:fragment="conteudo">		    
+	    <form class="form-group" method="POST" action="/titulos">
+			<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+			  <span th:text="${mensagem}"></span>
+			</div>
+			
+	    	<div class="card">
+	    		<div class="card-header">
+	    			<div class="clearfix">
+		    			<h5 class="card-title lac-title-panel">Novo título</h5>
+		    			<a class="btn btn-link lac-link-panel" href="/titulos">Voltar a pesquisa</a>
+	    			</div>
+	    		</div>
+	    		
+	    		<div class="card-body">
+					<div class="form-group">
+						<label for="descricao" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Descrição</label>
+						<div class="col-sm-8 col-md-8 col-lg-4 "> 
+							<input type="text" class="form-control" id="descricao" name="descricao"/>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-4 col-md-offset-4 col-lg-offset-2 col-sm-8 col-md-8 col-lg-10">
-								<button type="submit" class="btn btn-secundary">Salvar</button>
-							</div>
+						
+						<label for="dataVencimento" class="col-sm-4 col-md-4 col-lg-2  col-form-label">Data de vencimento</label>
+						<div class="col-sm-4 col-md-4 col-lg-2 ">  
+							<input type="text" class="form-control"	id="dataVencimento" name="dataVencimento" />
+						</div>
+						
+						<label for="valor" class="col-sm-4 col-md-4 col-lg-2  col-form-label">Valor</label>
+						<div class="col-sm-4 col-md-4 col-lg-2 ">   
+							<input type="text" class="form-control" id="valor" name="valor"/>
+						</div>
+						
+						<label for="status" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Status</label>
+						<div class="col-sm-4 col-md-4 col-lg-2">
+							<select class="form-control" name="status">
+								<option th:each="status : ${carregarStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
+	                    	</select>
+	                    </div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-md-offset-4 col-lg-offset-2 col-sm-8 col-md-8 col-lg-10">
+							<button type="submit" class="btn btn-secundary">Salvar</button>
 						</div>
 					</div>
-		    	</div>
-		    </form>
-
-	<script src="/js/jquery-3.3.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	
-</body>
+				</div>
+	    	</div>
+	    </form>
+</section>	
+    
 </html>

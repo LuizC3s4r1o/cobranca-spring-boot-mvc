@@ -28,3 +28,25 @@
 	margin-right: 10px;
 	margin-top: 10px;
 }
+.lac-title-panel{
+	float: left;
+	
+}
+.lac-link-panel{
+	float: right;
+	text-decoration: none; 
+	color: #104E8B;
+}
+
+.lac-link-panel:hover, .lac-link-panel:active {
+	text-decoration: none; 
+	color: #104E8B;
+}
+
+.col-form-label{
+	padding-bottom: 1px;
+}
+
+.card-body{
+	padding: 5px;;
+}	
