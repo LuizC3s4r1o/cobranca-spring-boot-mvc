@@ -9,10 +9,9 @@
 </head>
 
 <section layout:fragment="conteudo">		    
-	    <form class="form-group" method="POST" action="/titulos">
-			<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-			  <span th:text="${mensagem}"></span>
-			</div>
+	    <form class="form-control-sm" method="POST" action="/titulos" th:object="${titulo}">
+			
+			<header layout:insert="Mensagem"></header>
 			
 	    	<div class="card">
 	    		<div class="card-header">
@@ -23,20 +22,22 @@
 	    		</div>
 	    		
 	    		<div class="card-body">
-					<div class="form-group">
-						<label for="descricao" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Descrição</label>
+					<div class="form-group" >
+						<label for="descricao" class="col-sm-4 col-md-4 col-lg-2 col-form-label"
+							th:classappend="${#fields.hasErrors('descricao')} ? text-danger">Descrição</label>
 						<div class="col-sm-8 col-md-8 col-lg-4 "> 
 							<input type="text" class="form-control" id="descricao" name="descricao"/>
 						</div>
 						
-						<label for="dataVencimento" class="col-sm-4 col-md-4 col-lg-2  col-form-label">Data de vencimento</label>
+						<label for="dataVencimento" class="col-sm-4 col-md-4 col-lg-2  col-form-label"
+							th:classappend="${#fields.hasErrors('dataVencimento')} ? text-danger">Data de vencimento</label>
 						<div class="col-sm-4 col-md-4 col-lg-2 ">  
 							<input type="text" class="form-control"	id="dataVencimento" name="dataVencimento" />
 						</div>
-						
-						<label for="valor" class="col-sm-4 col-md-4 col-lg-2  col-form-label">Valor</label>
-						<div class="col-sm-4 col-md-4 col-lg-2 ">   
-							<input type="text" class="form-control" id="valor" name="valor"/>
+						<label for="valor" class="col-sm-4 col-md-4 col-lg-2  col-form-label" 
+							th:classappend="${#fields.hasErrors('valor')} ? text-danger">Valor</label>
+						<div class="col-sm-4 col-md-4 col-lg-2">   
+							<input type="text" class="form-control" id="valor" name="valor" />
 						</div>
 						
 						<label for="status" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Status</label>
