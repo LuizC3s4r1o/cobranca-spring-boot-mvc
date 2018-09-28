@@ -1,11 +1,16 @@
 .navbar.navbar-inverse.navbar-static-top{
 	background: #363636;
+	margin-left: -15px;
 }
 
 .card{
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 10px;
+}
+
+img.logo{
+	margin-bottom: 2px;
 }
 
 .navbar-brand{

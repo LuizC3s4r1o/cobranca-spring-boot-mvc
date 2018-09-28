@@ -19,6 +19,7 @@
 	    		</div>
 		
 			<div class="card-body">
+				<div class="table-responsive">
 						<table class="table table-bordered table-striped table-sm">
 							  <thead >
 							    <tr >
@@ -40,13 +41,19 @@
 							  			<span class="badge" th:text="${titulo.status.descricao}"
 							  			th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 							  		</td>
-							  		<td class="text-center" ></td>
+							  		<td class="text-center" >
+							  		<a class="btn btn-link" th:href="@{/titulos/{id}(id=${titulo.id})}">
+							  			<i class="far fa-edit"></i>
+							  		</a>
+							  			
+							  		</td>
 							  	</tr>	
 							    <tr>
 							      <td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum valor encontrado</td>
 							    </tr>
 							  </tbody>
 						</table>
+					</div>
 			</div>
 	
 		</div>
