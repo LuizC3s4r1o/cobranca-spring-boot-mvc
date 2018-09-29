@@ -1,22 +1,22 @@
 package com.lacsystem.cobranca.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.format.annotation.NumberFormat;
 
 /**
@@ -34,10 +34,10 @@ public class Titulo {
 	@NotEmpty(message = "Descrição é obrigatória")
 	private String descricao;
 	
-	@NotNull(message = "Data de vencimento é obrigatória")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Temporal(TemporalType.DATE)
-	private Date dataVencimento;
+	@NotNull(message = "Data é obrigatória")
+	@DateTimeFormat(iso = ISO.DATE, pattern = "")
+	@Column(nullable = false, columnDefinition = "DATE")
+	private LocalDate dataVencimento;
 	
 	@NotNull(message = "Valor é obrigatório")
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
@@ -61,10 +61,11 @@ public class Titulo {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Date getDataVencimento() {
+
+	public LocalDate getDataVencimento() {
 		return dataVencimento;
 	}
-	public void setDataVencimento(Date dataVencimento) {
+	public void setDataVencimento(LocalDate dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
 	public BigDecimal getValor() {
@@ -73,7 +74,6 @@ public class Titulo {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	
 	
 	public StatusTitulo getStatus() {
 		return status;

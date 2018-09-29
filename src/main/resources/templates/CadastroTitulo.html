@@ -33,7 +33,7 @@
 						<label for="dataVencimento" class="col-sm-4 col-md-4 col-lg-2  col-form-label"
 							th:classappend="${#fields.hasErrors('dataVencimento')} ? text-danger">Data de vencimento</label>
 						<div class="col-sm-4 col-md-4 col-lg-2 ">  
-							<input type="text" class="form-control"	id="dataVencimento" th:field="*{dataVencimento}" />
+							<input type="date" class="form-control"	id="dataVencimento" th:field="*{dataVencimento}"  />
 						</div>
 						<label for="valor" class="col-sm-4 col-md-4 col-lg-2  col-form-label" 
 							th:classappend="${#fields.hasErrors('valor')} ? text-danger">Valor</label>
