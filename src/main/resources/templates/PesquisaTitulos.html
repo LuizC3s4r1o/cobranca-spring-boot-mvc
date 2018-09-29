@@ -44,12 +44,14 @@
 							  		</td>
 							  		<td class="text-center" >
 							  			
-								  		<a class="btn btn-link" th:href="@{/titulos/{id}(id=${titulo.id})}" style="padding: 0;">
-								  			<i class="far fa-edit" style="color: gray" title="editar"></i>
+								  		<a class="btn btn-link" th:href="@{/titulos/{id}(id=${titulo.id})}" style="padding: 0;"
+								  				title="editar" rel="tooltip" data-placement="top">
+								  			<i class="far fa-edit" style="color: gray" ></i>
 								  		</a>
 								  		<a class="btn btn-link" style="padding: 0;" data-toggle="modal" data-target="#confirmacaoEclusaoModal" 
-								  			th:attr="data-id=${titulo.id}, data-descricao=${titulo.descricao}">
-								  			<i class="fas fa-trash" style="color: gray" title="excluir"></i>
+								  				th:attr="data-id=${titulo.id}, data-descricao=${titulo.descricao}" 
+								  				rel="tooltip" title="excluir" data-placement="top">
+								  			<i class="fas fa-trash" style="color: gray"></i>
 								  		</a>	
 							  		</td>
 							  	</tr>	

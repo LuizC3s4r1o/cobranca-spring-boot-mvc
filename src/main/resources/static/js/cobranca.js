@@ -14,3 +14,8 @@ $('#confirmacaoEclusaoModal').on('show.bs.modal', function(event){
 	modal.find('.modal-body span').html('Tem certeza que deseja excluir <b>' + descricaoTitulo + '</b>?');
 	
 });
+
+
+$(function () {
+	  $('[rel="tooltip"]').tooltip()
+	})
