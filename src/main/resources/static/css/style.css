@@ -58,4 +58,10 @@ img.logo{
 
 .lac{
 	padding: 0px;
+}
+
+.lac-header{
+	text-align: center; 
+	padding: 10px; 
+	color: #363636;
 }	

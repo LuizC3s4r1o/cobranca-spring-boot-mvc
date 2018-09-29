@@ -11,8 +11,8 @@
 <section layout:fragment="conteudo">		    
 	    <form class="form-control-sm" method="POST" action="/titulos" th:object="${titulo}">
 			
-			<header layout:insert="Mensagem"></header>
-			
+			<header layout:insert="MensagemGeral"></header>
+			<header layout:insert="MensagemErro"></header>
 	    	<div class="card">
 	    		<div class="card-header">
 	    			<div class="clearfix">

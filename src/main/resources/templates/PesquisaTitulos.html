@@ -10,6 +10,7 @@
 </head>
 
 <section layout:fragment="conteudo">
+	<header layout:insert="MensagemGeral"></header>
 	    <div class="card">
 	    		<div class="card-header">
 	    			<div class="clearfix">
@@ -23,12 +24,12 @@
 						<table class="table table-bordered table-striped table-sm">
 							  <thead >
 							    <tr >
-							      <th class="text-center" width="5%" scope="col" >#</th>
-							      <th scope="col" class="text-left" width="35%">Descrição</th>
-							      <th class="text-center" width="15%" scope="col">Vencimento</th>
-							      <th class="text-right" width="15%" scope="col">Valor</th>
-							      <th class="text-center" width="20%" scope="col" >Status</th>
-							      <th class="text-center" width="10%" scope="col" ></th>
+							      <th class="text-center"  scope="col" >#</th>
+							      <th scope="col" class="text-left" width="36%">Descrição</th>
+							      <th class="text-center"  scope="col">Vencimento</th>
+							      <th class="text-right"  scope="col">Valor</th>
+							      <th class="text-center" scope="col" >Status</th>
+							      <th class="text-center"  scope="col" ></th>
 							    </tr>
 							  </thead>
 							  <tbody >
@@ -42,10 +43,14 @@
 							  			th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 							  		</td>
 							  		<td class="text-center" >
-							  		<a class="btn btn-link" th:href="@{/titulos/{id}(id=${titulo.id})}">
-							  			<i class="far fa-edit"></i>
-							  		</a>
 							  			
+								  		<a class="btn btn-link" th:href="@{/titulos/{id}(id=${titulo.id})}" style="padding: 0;">
+								  			<i class="far fa-edit" style="color: gray" title="editar"></i>
+								  		</a>
+								  		<a class="btn btn-link" style="padding: 0;" data-toggle="modal" data-target="#confirmacaoEclusaoModal" 
+								  			th:attr="data-id=${titulo.id}, data-descricao=${titulo.descricao}">
+								  			<i class="fas fa-trash" style="color: gray" title="excluir"></i>
+								  		</a>	
 							  		</td>
 							  	</tr>	
 							    <tr>
@@ -55,7 +60,9 @@
 						</table>
 					</div>
 			</div>
-	
+			
+			<div layout:insert="DialogConfirmacaoExclusao"></div>
+		
 		</div>
 		
 </section>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+ 
+<div class="modal fade" id="confirmacaoEclusaoModal" tabindex="-1" role="dialog" 
+	aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="false">
+  <div class="modal-dialog" role="document">
+  <form th:attr="data-url-base='/titulos'" method="Post">
+  	<input type="hidden" name="_method" value="DELETE">
+	    <div class="modal-content">
+	      <div class="lac-header" >
+	        <h6 class="modal-title" id="exampleModalLabel">Exclusão de registro</h6>
+	      </div>
+	      <div class="modal-body">
+	      	<span>tem certeza que deseja me excluir?</span>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	        <button type="submit" class="btn btn-primary">Excluir</button>
+	      </div>
+	    </div>
+  </form>
+  </div>
+</div>
+    
+</html>
