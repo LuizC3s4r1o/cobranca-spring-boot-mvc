@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+import org.springframework.format.annotation.NumberFormat.Style;
 import org.springframework.format.annotation.NumberFormat;
 
 /**
@@ -42,7 +43,7 @@ public class Titulo {
 	@NotNull(message = "Valor é obrigatório")
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
 	@DecimalMax(value = "9999999.99", message = "valor não pode ser maior que 9.999.999,99")
-	@NumberFormat(pattern = "#,##0.00")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	private BigDecimal valor;
 	
 	@Enumerated(EnumType.STRING)
