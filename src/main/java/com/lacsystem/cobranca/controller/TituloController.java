@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.lacsystem.cobranca.model.StatusTitulo;
 import com.lacsystem.cobranca.model.Titulo;
 import com.lacsystem.cobranca.repository.Titulos;
+import com.lacsystem.cobranca.service.CadastroTituloService;
 
 /**
  * @author Luiz.Cesario
@@ -30,6 +31,9 @@ public class TituloController {
 	
 	@Autowired
 	private Titulos titulos;
+	
+	@Autowired
+	private CadastroTituloService cadastroTituloService;
 	
 	private static final String CADASTRO_VIEW = "CadastroTitulo";
 	
@@ -46,7 +50,7 @@ public class TituloController {
 			return CADASTRO_VIEW;
 		}
 		
-		titulos.save(titulo);
+		cadastroTituloService.salvar(titulo);
 		atributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
 		return "redirect:/titulos/novo";
 	}
@@ -70,7 +74,7 @@ public class TituloController {
 	
 	@RequestMapping(value="{id}", method = RequestMethod.DELETE)
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes atributes) {
-		titulos.deleteById(id);
+		cadastroTituloService.excluir(id);
 		atributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
 		return "redirect:/titulos";
 	}
