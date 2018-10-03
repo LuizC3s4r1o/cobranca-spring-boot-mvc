@@ -46,13 +46,19 @@
 							  			
 								  		<a class="btn btn-link" th:href="@{/titulos/{id}(id=${titulo.id})}" style="padding: 0;"
 								  				title="editar" rel="tooltip" data-placement="top">
-								  			<i class="far fa-edit" style="color: gray" ></i>
+								  			<span class="far fa-edit" style="color: #36648B" ></span>
 								  		</a>
 								  		<a class="btn btn-link" style="padding: 0;" data-toggle="modal" data-target="#confirmacaoEclusaoModal" 
 								  				th:attr="data-id=${titulo.id}, data-descricao=${titulo.descricao}" 
 								  				rel="tooltip" title="excluir" data-placement="top">
-								  			<i class="fas fa-trash" style="color: gray"></i>
+								  			<span class="fas fa-trash" style="color: #dc3545"></span>
+								  		</a>
+								  		
+  								  		<a class="btn btn-link js-atualizar-status" style="padding: 0;" th:if="${titulo.pendente}"
+								  				rel="tooltip" title="receber" data-placement="top" th:href="@{/titulos/{id}/receber(id=${titulo.id})}">
+								  			<span class="far fa-check-circle" style="color: green"></span>
 								  		</a>	
+								  		
 							  		</td>
 							  	</tr>	
 							    <tr>
