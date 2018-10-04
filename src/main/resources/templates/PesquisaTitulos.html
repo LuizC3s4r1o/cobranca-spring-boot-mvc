@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="layoutPadrao"
+    layout:decorate="~{layoutPadrao}"
     >
 	  
 <head>
@@ -25,11 +25,11 @@
 							  <thead >
 							    <tr >
 							      <th class="text-center"  scope="col" >#</th>
-							      <th scope="col" class="text-left" width="36%">Descrição</th>
+							      <th class="text-left" width="36%"   scope="col" >Descrição</th>
 							      <th class="text-center"  scope="col">Vencimento</th>
-							      <th class="text-right"  scope="col">Valor</th>
-							      <th class="text-center" scope="col" >Status</th>
-							      <th class="text-center"  scope="col" ></th>
+							      <th class="text-right"   scope="col">Valor</th>
+							      <th class="text-center"  scope="col" >Status</th>
+							      <th class="text-center"  scope="col" >Edição</th>
 							    </tr>
 							  </thead>
 							  <tbody >
@@ -38,7 +38,7 @@
 							  		<td class="text-left" th:text="${titulo.descricao}"></td>
 							  		<td class="text-center" th:text="${#temporals.format(titulo.dataVencimento, 'dd/MM/yyyy')}"></td>
 							  		<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
-							  		<td class="text-center">
+							  		<td class="text-center" th:attr="data-role=${titulo.id}">
 							  			<span class="badge" th:text="${titulo.status.descricao}"
 							  			th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 							  		</td>
@@ -54,7 +54,7 @@
 								  			<span class="fas fa-trash" style="color: #dc3545"></span>
 								  		</a>
 								  		
-  								  		<a class="btn btn-link js-atualizar-status" style="padding: 0;" th:if="${titulo.pendente}"
+  								  		<a class="btn btn-link js-atualizar-status" style="padding: 0;" th:if="${titulo.pendente}" th:attr="data-id=${titulo.id}"
 								  				rel="tooltip" title="receber" data-placement="top" th:href="@{/titulos/{id}/receber(id=${titulo.id})}">
 								  			<span class="far fa-check-circle" style="color: green"></span>
 								  		</a>	

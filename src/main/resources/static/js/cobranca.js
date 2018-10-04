@@ -24,6 +24,27 @@ $(function () {
 		  
 		  var btnReceber = $(event.currentTarget);
 		  var urlReceber = btnReceber.attr('href');
-		  console.log('urlReceber:', urlReceber);
+		  
+		 //		  console.log('urlReceber:', urlReceber);
+		 
+		  var response = $.ajax({
+			 
+			  url: urlReceber,
+			  type: 'PUT'
+			  
+		  });
+		  
+		  response.done(function(e) {
+			  var idTituloRecebido = btnReceber.data('id');
+			  $('[data-role=' + idTituloRecebido + ']').html('<span class="badge badge-success">' + e + '</span>');
+			  btnReceber.hide();
+			  
+		  	});
+		  
+		  response.fail(function(e) {
+				console.log(e);
+				alert("Erro na tentativa de receber essa cobrança!")
+			});
+		  
 	  });
 	})
