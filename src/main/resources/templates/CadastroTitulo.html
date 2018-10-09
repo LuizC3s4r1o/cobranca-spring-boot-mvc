@@ -45,7 +45,7 @@
 						
 						<label for="status" class="col-sm-4 col-md-4 col-lg-2 col-form-label">Status</label>
 						<div class="col-sm-4 col-md-4 col-lg-2">
-							<select class="form-control" name="status">
+							<select class="form-control" name="status" th:field="*{status}" >
 								<option th:each="status : ${carregarStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
 	                    	</select>
 	                    </div>
