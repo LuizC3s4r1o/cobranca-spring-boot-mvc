@@ -2,7 +2,6 @@ package com.lacsystem.cobranca.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lacsystem.cobranca.model.StatusTitulo;
 import com.lacsystem.cobranca.model.Titulo;
-import com.lacsystem.cobranca.repository.Titulos;
+import com.lacsystem.cobranca.repository.filter.TituloFilter;
 import com.lacsystem.cobranca.service.CadastroTituloService;
 
 /**
@@ -29,10 +28,7 @@ import com.lacsystem.cobranca.service.CadastroTituloService;
 @Controller
 @RequestMapping("/titulos")
 public class TituloController {
-	
-	@Autowired
-	private Titulos titulos;
-	
+
 	@Autowired
 	private CadastroTituloService cadastroTituloService;
 	
@@ -57,10 +53,9 @@ public class TituloController {
 	}
 	
 	@RequestMapping
-	public ModelAndView pesquisar() {
-		List<Titulo> listaTitulos = titulos.findAll().stream()
-												.sorted((a,b) -> a.getId().compareTo(b.getId()))
-												.collect(Collectors.toList());
+	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
+		List<Titulo> listaTitulos = cadastroTituloService.filtrar(filtro);
+		
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
 		mv.addObject("titulos",listaTitulos);
 		return mv;
