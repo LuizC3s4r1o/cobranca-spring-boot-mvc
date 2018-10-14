@@ -10,7 +10,7 @@
 </head>
 
 <section layout:fragment="conteudo">		    
-	    <form class="form-control-sm" method="POST" action="/titulos" th:object="${titulo}">
+	    <form class="form-control-sm" method="POST" th:action="@{/titulos}" th:object="${titulo}">
 			
 			<header layout:insert="MensagemGeral"></header>
 			<header layout:insert="MensagemErro"></header>
@@ -18,7 +18,7 @@
 	    		<div class="card-header">
 	    			<div class="clearfix">
 		    			<h5 class="card-title lac-title-panel">Novo título</h5>
-		    			<a class="btn btn-link lac-link-panel" href="/titulos">Voltar a pesquisa</a>
+		    			<a class="btn btn-link lac-link-panel" th:href="@{/titulos}">Voltar a pesquisa</a>
 	    			</div>
 	    		</div>
 	    		
